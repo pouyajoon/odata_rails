@@ -12,6 +12,6 @@ class OdataController < ApplicationController
   end
 
   def metadata
-    render :json => {}
+   render file: "./public/odata/metadata.xml", layout: false, content_type: 'text/xml'
   end
 end
