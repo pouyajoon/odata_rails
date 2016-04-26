@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -6,9 +6,21 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+ # map.with_options(:controller => "o_data") do |o_data|
+ #    o_data.o_data_service  "/OData/OData.svc",                                     :action => "service"
+ #    o_data.o_data_metadata "/OData/OData.svc/$metadata",                           :action => "metadata"
+ #    o_data.o_data_resource "/OData/OData.svc/*#{ODataController.path_param.to_s}", :action => "resource"
+    
+ #    o_data.connect "/OData",                                     :action => "redirect_to_service"
+ #    o_data.connect "/OData/$metadata",                           :action => "redirect_to_metadata"
+ #    o_data.connect "/OData/*#{ODataController.path_param.to_s}", :action => "redirect_to_resource"
+ #  end
+
   root 'odata#home'
 
-  get '$metadata' => 'odata#metadata'
+  get 'metadata' => 'odata#metadata'
+  get 'Cities' => 'odata#cities'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

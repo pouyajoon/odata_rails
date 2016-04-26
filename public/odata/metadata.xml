@@ -1,9 +1,14 @@
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="OData">
-            <EntityType Name="City" BaseType="OData.City">
+            <EntityType Name="City" HasStream="true">
+                <Property Name="Id" Type="Edm.Int64" Nullable="false"></Property>
                 <Property Name="Name" Type="Edm.String" Nullable="false"/>
             </EntityType>
+            <EntityContainer Name="DefaultContainer">
+                <EntitySet Name="Cities" EntityType="OData.City">
+                </EntitySet>
+            </EntityContainer>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
